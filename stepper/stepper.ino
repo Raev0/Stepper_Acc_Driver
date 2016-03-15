@@ -1,17 +1,21 @@
 #define ledPin 13
 #define stepPin 8
 #define dirPin 9 
+#define OSCILLATOR 16000000
 #define MICROSTEP 8
 #define REVOLUTION 200
+#define NANO 10000000000
+#define VSET 4 //rotation speed rps
+#define ACCSET 1//rotation per square second
+#define SSET 100*NANO
 
 
-#define VSET 2 //rotation speed rps
-#define SSET 1000
-#define ACCSET 20//rotation per square second
+#define DELTAT 256.0/OSCILLATOR
 
-double delta_t=(double)256/16000000;
-static double v,s,s_fore,block;
-int asd = 0;
+
+static unsigned long int block,s,s_fore,v,VSET_S,ACCSET_S;
+
+
 /*
  * Each of the timers has a counter that is incremented on each tick of the timer's clock.
  * CTC timer interrupts are triggered when the counter reaches a specified value stored in the compare match register. 
@@ -34,7 +38,10 @@ void setup()
   TCCR1A = 0;
   TCCR1B = 0;
   TCNT1  = 0;
-
+  
+  VSET_S=VSET*NANO*DELTAT;
+  ACCSET_S=VSET*NANO*DELTAT*DELTAT;
+  Serial.println(VSET_S);
 
 /*
  * FOR Microstepping is Full step
@@ -56,52 +63,31 @@ void setup()
 
 ISR(TIMER1_COMPA_vect)          // timer compare interrupt service routine
 {
-  v = 2;
-  s += v / 60000.0;
-  block += v / 60000.0;
-  if(block > 0.000625)
-  {
-    //digitalWrite(stepPin, 1);
-    block-= 0.000625;
-  }
-digitalWrite(stepPin,asd);
-if(asd == 0)
-{
-  asd = 1;
-}
-else
-{
-  asd = 0;
-}
   
- /*digitalWrite(stepPin, 0);
+digitalWrite(stepPin, 0);
   
-  if((s+s_fore)<SSET)
-  {
-
-         if (v<VSET)
+ if((s+s_fore)<SSET)
+ {
+         if (v<VSET_S)
          {
-              s+=delta_t*v;
-              block+=v*delta_t;
-              v+=delta_t*ACCSET;
-
+              s+=1*v;
+              block+=1*v;
+              v+=ACCSET_S;
           }
          else
-         {
-             
-              s+=delta_t*v;
-              s_fore=pow(v,2)/2/ACCSET;
-              block+=v*delta_t;
-              v=VSET;
+         {  
+              s+=1*v;
+              //s_fore=pow(v,2)/2/ACCSET_S;
+              block+=v*1;
+              v=VSET_S;
           }
   }
    
 else if(v>0)
 {
-  
-  s=delta_t*v+s;
-  block+=v*delta_t;
-  v=v-delta_t*ACCSET;
+  s+=1*v;
+  block+=v*1;
+  v=v-1*ACCSET_S;
 }
 else if(v<=0)
 {
@@ -109,19 +95,28 @@ else if(v<=0)
   s_fore=0;
   s=0;
   delay(2000);      
- }
-    
+ }  
 
-if (block>1.0/MICROSTEP/REVOLUTION)  // reality meaning ,when 1 step made, output this step
+if (block>NANO/MICROSTEP/REVOLUTION)  // reality meaning ,when 1 step made, output this step
 {
   digitalWrite(stepPin, 1);
-  block-=1.0/MICROSTEP/REVOLUTION;
-
+  block-=NANO/MICROSTEP/REVOLUTION;
 }
-Serial.println();*/
-
-     
- }
+/* for debug
+Serial.print("a");
+Serial.print(VSET*NANO*DELTAT*DELTAT);
+Serial.print("\t");
+Serial.print("v");
+Serial.print(v);
+Serial.print("\t");
+Serial.print("s");
+Serial.print(s);
+Serial.print("\t");
+Serial.print("\block:");
+Serial.println(block);
+delay(5);
+*/     
+}
  
 
 void loop()
