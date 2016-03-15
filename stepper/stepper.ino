@@ -1,8 +1,10 @@
 #define ledPin 13
 #define stepPin 8
 #define dirPin 9 
-#define gratingPin 10
+#define MICROSTEP 8
+#define REVOLUTION 200
 
+double delta_t=(double)256/16000000;
 
 /*
  * Each of the timers has a counter that is incremented on each tick of the timer's clock.
@@ -18,7 +20,6 @@ void setup()
   pinMode(ledPin, OUTPUT);
   pinMode(stepPin, OUTPUT);
   pinMode(dirPin, OUTPUT);
-  pinMode(gratingPin,INPUT);
   digitalWrite(dirPin, 1);
   
   Serial.begin(9600);
@@ -28,8 +29,7 @@ void setup()
   TCCR1B = 0;
   TCNT1  = 0;
 
-  int rpm=120;//  280 rpm should be the fastest
-  int MircoN=8;
+
 /*
  * FOR Microstepping is Full step
  * this stepper is 1'8 per step. then a rotation hass 360/1.8=200 step per revolution  
@@ -37,10 +37,13 @@ void setup()
  * OCR=16m/f_timer/prescaler=16m/f_pulse/2/prescaler=1.2M/N/rpm/prescaler
  */
   
-  OCR1A = 1200000/MircoN/rpm/256;            // compare match register 31250=16MHz/256/2Hz
-  Serial.println(OCR1A);
+  //OCR1A = 1200000/MICROSTEP/(rpm+1)/256;            // compare match register 31250=16MHz/256/2Hz  // 640,000 = 1 rms   400= 1 step
+
+  OCR1A=0;   
+
+  
   TCCR1B |= (1 << WGM12);   // CTC mode ( Clear Timer on Compare Match)
-  TCCR1B |= (1 << CS12);    // 256 prescaler 
+  TCCR1B |= (1 << CS12);    // 256 prescaler, thus every "tick" takes  256/16M s 
   TIMSK1 |= (1 << OCIE1A);  // enable timer compare interrupt
   interrupts();             // enable all interrupts
 }
@@ -48,45 +51,49 @@ void setup()
 ISR(TIMER1_COMPA_vect)          // timer compare interrupt service routine
 {
  
-  digitalWrite(stepPin, digitalRead(stepPin) ^ 1);
-  //Serial.println(digitalRead(gratingPin));
-  /*
-  static float v_set,v,acc,s,s_fore,s_set;
-  v_set=30;
-  s_set=6000;
-  acc=2;
+  static double v_set,v,acc,s,s_fore,s_set;
+  v_set=20;  //rotation speed rps
+  
+  acc=100; //rotation per square second
+  static double block;
 
-
-  if((s+s_fore)<s_set){
-     
-     
-     if (v<v_set){
-          v=1*acc+v;
-          s=1*v+s;
+  digitalWrite(stepPin, 0);
+  if((s+s_fore)<s_set)
+  {
+      
+   
+     if (v<v_set)
+     {
+          v=delta_t*acc+v;
+          s=delta_t*v+s;
+          block+=v*delta_t;
       }
-     else{
+     else
+     {
           v=v_set;
-          s=1*v+s;
-          s_fore=pow(v,2)/2/acc;
+          s=delta_t*v+s;
+          //s_fore=pow(v,2)/2/acc;
+          block+=v*delta_t;
+  
       }
+      if (block>1.0/MICROSTEP/REVOLUTION)  // reality meaning ,when 1 step made, output this step
+      {
+        block-=1.0/MICROSTEP/REVOLUTION;
+        digitalWrite(stepPin, 1);
+ 
+      }
+   
     
-
-  }
-  else if (v>=0) { 
-    v=v-1*acc;
-    s=1*v+s;
+    //debug segments
+    //delay(2000);
+    //Serial.print(1000*block);
+   // Serial.print("\t");
+   // Serial.println(1000*v);
+    
+     
   }
  
-  Serial.println(v);
-   
-  
-  digitalWrite(ledPin, digitalRead(ledPin) ^ 1);   // toggle LED pin (xor 1 is the not) 
 
-
-  
-  int x=x+0.1;
-  //Serial.println(x);
-  */
 }
 
 void loop()
