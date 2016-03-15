@@ -53,48 +53,53 @@ ISR(TIMER1_COMPA_vect)          // timer compare interrupt service routine
  
   static double v_set,v,acc,s,s_fore,s_set;
   v_set=20;  //rotation speed rps
-  
-  acc=100; //rotation per square second
+  s_set=100;
+  acc=200; //rotation per square second
   static double block;
 
   digitalWrite(stepPin, 0);
   if((s+s_fore)<s_set)
   {
-      
-   
-     if (v<v_set)
-     {
-          v=delta_t*acc+v;
-          s=delta_t*v+s;
-          block+=v*delta_t;
-      }
-     else
-     {
-          v=v_set;
-          s=delta_t*v+s;
-          //s_fore=pow(v,2)/2/acc;
-          block+=v*delta_t;
-  
-      }
-      if (block>1.0/MICROSTEP/REVOLUTION)  // reality meaning ,when 1 step made, output this step
-      {
-        block-=1.0/MICROSTEP/REVOLUTION;
-        digitalWrite(stepPin, 1);
- 
-      }
-   
-    
-    //debug segments
-    //delay(2000);
-    //Serial.print(1000*block);
-   // Serial.print("\t");
-   // Serial.println(1000*v);
-    
-     
+
+         if (v<v_set)
+         {
+              v=delta_t*acc+v;
+              s=delta_t*v+s;
+              block+=v*delta_t;
+          }
+         else
+         {
+              v=v_set;
+              s=delta_t*v+s;
+              s_fore=pow(v,2)/2/acc;
+              block+=v*delta_t;
+          }
   }
- 
+   
+else if(v>0)
+{
+  v=v-delta_t*acc;
+  s=delta_t*v+s;
+  block+=v*delta_t;
+}
+else if(v<=0)
+{
+  v=0;
+  s_fore=0;
+   s=0;
+  delay(2000);      
+ }
+    
+
+if (block>1.0/MICROSTEP/REVOLUTION)  // reality meaning ,when 1 step made, output this step
+{
+  block-=1.0/MICROSTEP/REVOLUTION;
+  digitalWrite(stepPin, 1);
 
 }
+     
+ }
+ 
 
 void loop()
 {
