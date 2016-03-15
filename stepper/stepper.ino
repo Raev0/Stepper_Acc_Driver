@@ -4,8 +4,14 @@
 #define MICROSTEP 8
 #define REVOLUTION 200
 
-double delta_t=(double)256/16000000;
 
+#define VSET 2 //rotation speed rps
+#define SSET 1000
+#define ACCSET 20//rotation per square second
+
+double delta_t=(double)256/16000000;
+static double v,s,s_fore,block;
+int asd = 0;
 /*
  * Each of the timers has a counter that is incremented on each tick of the timer's clock.
  * CTC timer interrupts are triggered when the counter reaches a specified value stored in the compare match register. 
@@ -50,53 +56,70 @@ void setup()
 
 ISR(TIMER1_COMPA_vect)          // timer compare interrupt service routine
 {
- 
-  static double v_set,v,acc,s,s_fore,s_set;
-  v_set=20;  //rotation speed rps
-  s_set=100;
-  acc=200; //rotation per square second
-  static double block;
-
-  digitalWrite(stepPin, 0);
-  if((s+s_fore)<s_set)
+  v = 2;
+  s += v / 60000.0;
+  block += v / 60000.0;
+  if(block > 0.000625)
+  {
+    //digitalWrite(stepPin, 1);
+    block-= 0.000625;
+  }
+digitalWrite(stepPin,asd);
+if(asd == 0)
+{
+  asd = 1;
+}
+else
+{
+  asd = 0;
+}
+  
+ /*digitalWrite(stepPin, 0);
+  
+  if((s+s_fore)<SSET)
   {
 
-         if (v<v_set)
+         if (v<VSET)
          {
-              v=delta_t*acc+v;
-              s=delta_t*v+s;
+              s+=delta_t*v;
               block+=v*delta_t;
+              v+=delta_t*ACCSET;
+
           }
          else
          {
-              v=v_set;
-              s=delta_t*v+s;
-              s_fore=pow(v,2)/2/acc;
+             
+              s+=delta_t*v;
+              s_fore=pow(v,2)/2/ACCSET;
               block+=v*delta_t;
+              v=VSET;
           }
   }
    
 else if(v>0)
 {
-  v=v-delta_t*acc;
+  
   s=delta_t*v+s;
   block+=v*delta_t;
+  v=v-delta_t*ACCSET;
 }
 else if(v<=0)
 {
   v=0;
   s_fore=0;
-   s=0;
+  s=0;
   delay(2000);      
  }
     
 
 if (block>1.0/MICROSTEP/REVOLUTION)  // reality meaning ,when 1 step made, output this step
 {
-  block-=1.0/MICROSTEP/REVOLUTION;
   digitalWrite(stepPin, 1);
+  block-=1.0/MICROSTEP/REVOLUTION;
 
 }
+Serial.println();*/
+
      
  }
  
