@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+  Copyright : 2012 Freescale, Inc. All Rights Reserved.
+
+  This configuration file is a standard interchange file that's format is maintained
+  by Freescale, Inc. The configuration file is a derivative work
+  of the Processor Expert Software technology licensed for use by customers
+  as defined as SOFTWARE in the product's End User License Agreement. This file
+  and format are free to use and distribute for read-only purposes. You do not have
+  the right to create these files or modify this format or use for any purposes other
+  than interchange with the Processor Expert Software technology.
+
+  THIS SOFTWARE IS PROVIDED "AS IS".
+
+  NO WARRANTIES, WHETHER EXPRESS, IMPLIED OR STATUTORY, INCLUDING, BUT NOT
+  LIMITED TO, IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+  PURPOSE APPLY TO THIS SOFTWARE. IN NO EVENT WILL FREESCALE BE LIABLE, WHETHER
+  IN CONTRACT, TORT, OR OTHERWISE, FOR ANY INCIDENTAL, SPECIAL, INDIRECT,
+  CONSEQUENTIAL OR PUNITIVE DAMAGES, INCLUDING, BUT NOT LIMITED TO, DAMAGES FOR
+  ANY LOSS OF USE, LOSS OF TIME, INCONVENIENCE, COMMERCIAL LOSS, OR LOST PROFITS,
+  SAVINGS, OR REVENUES TO THE FULL EXTENT SUCH MAY BE DISCLAIMED BY LAW.
+
+-->
+<export xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ProjectInfoDescription.xsd">
+  <PROCESSOR>
+    <DeviceID>MKE06Z128xxx4</DeviceID>
+    <CoreNum>1</CoreNum>
+    <Cores>
+      <Core>
+        <CoreSet>Cortex-M0+</CoreSet>
+      </Core>
+    </Cores>
+    <SRAMsize>16k</SRAMsize>
+    <FLASHsize>128k</FLASHsize>
+  </PROCESSOR>
+  <PATHS>
+    <LinkerCommandFile>D:\Users\todd\workspace.kds\int of Marlin_MKE\Project_Settings\Linker_Files\ProcessorExpert.ld</LinkerCommandFile>
+    <IncludePaths>
+      <Path>D:\Users\todd\workspace.kds\int of Marlin_MKE\Static_Code\System\</Path>
+      <Path>D:\Users\todd\workspace.kds\int of Marlin_MKE\Static_Code\PDD\</Path>
+      <Path>D:\Users\todd\workspace.kds\int of Marlin_MKE\Static_Code\IO_Map\</Path>
+      <Path>D:\Freescale\KDS_3.0.0\eclipse\ProcessorExpert\lib\Kinetis\pdd\inc\</Path>
+      <Path>D:\Users\todd\workspace.kds\int of Marlin_MKE\Sources\</Path>
+      <Path>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\</Path>
+    </IncludePaths>
+    <SourceCodePaths>
+      <Path>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\</Path>
+      <Path>D:\Users\todd\workspace.kds\int of Marlin_MKE\Project_Settings\Startup_Code\</Path>
+      <Path>D:\Users\todd\workspace.kds\int of Marlin_MKE\Sources\</Path>
+      <Path>D:\Users\todd\workspace.kds\int of Marlin_MKE\Static_Code\System\</Path>
+    </SourceCodePaths>
+  </PATHS>
+  <FILES>
+    <GeneratedCs>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\BitIoLdd1.c</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\BitIoLdd10.c</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\BitIoLdd11.c</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\BitIoLdd12.c</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\BitIoLdd13.c</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\BitIoLdd2.c</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\BitIoLdd3.c</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\BitIoLdd4.c</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\BitIoLdd5.c</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\BitIoLdd6.c</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\BitIoLdd7.c</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\BitIoLdd8.c</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\BitIoLdd9.c</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\Cpu.c</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\DA1.c</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\E0_DIR.c</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\E0_EN_INVERSE.c</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\E0_STE.c</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\PE_LDD.c</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\Pins1.c</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\RELAY.c</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\ST_PULSE_TI.c</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\TU1.c</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\TimerIntLdd1.c</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\X_DIR.c</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\X_EN_INVERSE.c</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\X_STE.c</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\Y_DIR.c</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\Y_EN_INVERSE.c</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\Y_STE.c</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\Z_DIR.c</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\Z_EN_INVERSE.c</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\Z_STE.c</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Project_Settings\Startup_Code\startup.c</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Sources\Events.c</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Sources\Planner.c</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Sources\Scheduler.c</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Sources\main.c</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Static_Code\System\CPU_Init.c</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Static_Code\System\Peripherals_Init.c</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Static_Code\System\Vectors.c</PathName>
+    </GeneratedCs>
+    <GeneratedHs>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\BitIoLdd1.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\BitIoLdd10.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\BitIoLdd11.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\BitIoLdd12.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\BitIoLdd13.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\BitIoLdd2.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\BitIoLdd3.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\BitIoLdd4.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\BitIoLdd5.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\BitIoLdd6.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\BitIoLdd7.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\BitIoLdd8.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\BitIoLdd9.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\CPU_Config.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\Cpu.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\DA1.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\E0_DIR.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\E0_EN_INVERSE.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\E0_STE.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\IO_Map.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\Init_Config.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\PE_Const.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\PE_Error.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\PE_LDD.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\PE_Types.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\Pins1.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\RELAY.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\ST_PULSE_TI.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\TU1.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\TimerIntLdd1.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\Vectors_Config.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\X_DIR.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\X_EN_INVERSE.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\X_STE.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\Y_DIR.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\Y_EN_INVERSE.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\Y_STE.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\Z_DIR.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\Z_EN_INVERSE.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Generated_Code\Z_STE.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Sources\Events.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Sources\Planner.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Sources\Scheduler.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Sources\configuration.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Sources\global.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Static_Code\IO_Map\MKE06Z4.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Static_Code\PDD\ADC_PDD.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Static_Code\PDD\CMP_PDD.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Static_Code\PDD\CRC_PDD.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Static_Code\PDD\FTMRE_PDD.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Static_Code\PDD\FTM_PDD.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Static_Code\PDD\GPIO_PDD.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Static_Code\PDD\I2C_PDD.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Static_Code\PDD\IRQ_PDD.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Static_Code\PDD\KBI_PDD.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Static_Code\PDD\MCM_PDD.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Static_Code\PDD\MSCAN_PDD.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Static_Code\PDD\NVIC_PDD.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Static_Code\PDD\PDD_Types.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Static_Code\PDD\PIT_PDD.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Static_Code\PDD\PMC_PDD.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Static_Code\PDD\PORT_PDD.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Static_Code\PDD\PWT_PDD.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Static_Code\PDD\RTC0_PDD.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Static_Code\PDD\SCB_PDD.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Static_Code\PDD\SIM_PDD.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Static_Code\PDD\SPI_PDD.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Static_Code\PDD\SysTick_PDD.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Static_Code\PDD\UART_PDD.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Static_Code\PDD\WDOG_PDD.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Static_Code\System\CPU_Init.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Static_Code\System\PDD_Includes.h</PathName>
+      <PathName>D:\Users\todd\workspace.kds\int of Marlin_MKE\Static_Code\System\Peripherals_Init.h</PathName>
+    </GeneratedHs>
+  </FILES>
+  <OPTIONS>
+  </OPTIONS>
+</export>
